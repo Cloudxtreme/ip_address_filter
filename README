@@ -1,0 +1,17 @@
+IpAddressFilter
+===============
+
+This plugin can be used to restrict access to a controller to certain IP addresses. One can define a IP address and a Mask.
+
+For example
+
+class TestController < ApplicationController
+	include IpAddressFilterSystem
+	
+	filter_ip_addresses "10.0.0.0", :allow_localhost => true, :mask => "255.255.0.0"
+end
+
+This ip address filter only allow ip addresses starting with "10.0" to access the methods in the controller.
+
+The filter can be restricted to certain actions by adding :only, :except :for, :unless
+  
